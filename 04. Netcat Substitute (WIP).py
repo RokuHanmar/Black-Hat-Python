@@ -14,7 +14,7 @@ target = ""
 upload_destination = ""
 port = 0
 
-# Usage function handles command line arguments
+# Usage function defines important commands
 def usage():
     print("BHP Net Tool")
     
@@ -31,3 +31,11 @@ def usage():
     print("bhpnet.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc.passwd\"")
     print("echo 'ABCDEFGHI' | ./bhpnet.py -t 192.168.11.12 -p 135")
     sys.exit(0)
+    
+def main():
+    global listen
+    global port
+    global execute
+    global command
+    global upload_destination
+    global target
