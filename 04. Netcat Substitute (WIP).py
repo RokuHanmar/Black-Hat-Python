@@ -14,7 +14,7 @@ target = ""
 upload_destination = ""
 port = 0
 
-# Usage function defines important commands
+# Usage function explains how important commands are to be used, and is called if they fail to run
 def usage():
     print("BHP Net Tool")
     
@@ -39,3 +39,14 @@ def main():
     global command
     global upload_destination
     global target
+    
+    if not len(sys.argv[1:]):
+        usage()
+    
+    # read commandline options
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hle:t:p:cu:",
+        ["help", "listen", "execute", "target", "port", "command", "upload",])
+    except getopt.GetoptError as err:
+        print(str(err))
+        usage()
